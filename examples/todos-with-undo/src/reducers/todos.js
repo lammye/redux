@@ -1,11 +1,13 @@
 import undoable, { includeAction } from 'redux-undo'
 
 const todo = (state, action) => {
+  console.log('action:', action);
   switch (action.type) {
     case 'ADD_TODO':
       return {
         id: action.id,
         text: action.text,
+        subtext: action.subtext,
         completed: false
       }
     case 'TOGGLE_TODO':
@@ -23,6 +25,7 @@ const todo = (state, action) => {
 }
 
 const todos = (state = [], action) => {
+  console.log('state:', state);
   switch (action.type) {
     case 'ADD_TODO':
       return [
